@@ -11,10 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 235, 3, 177),
+          brightness: Brightness.dark,
         ),
       ),
       home: const MyHomePage(title: 'Hi Mom 🔥'),
@@ -45,19 +47,33 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'How to build this cool app with flutter:',
-              style: TextStyle(color: Colors.deepPurpleAccent),
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 187, 187, 187),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              height: 100.0,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              padding: EdgeInsets.all(10.0),
+              margin: EdgeInsets.all(20.0),
+              child: Text(
+                "Simulasi Card",
+                style: TextStyle(
+                  color: const Color.fromARGB(255, 146, 146, 146),
+                  fontSize: 20,
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text("Helo World"),
-          ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
