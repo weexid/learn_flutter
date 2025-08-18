@@ -14,6 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
   bool? isChecked = false;
   bool isSwitch = false;
   double slider = 0.0;
+  String? dropdownval = "menu-1";
 
   String get textToShow {
     if (isChecked == true) {
@@ -31,6 +32,20 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
+            DropdownButton(
+              value: dropdownval,
+              items: [
+                DropdownMenuItem(value: "menu-1", child: Text("Menu 1")),
+                DropdownMenuItem(value: "menu-2", child: Text("Menu 2")),
+                DropdownMenuItem(value: "menu-3", child: Text("Menu 3")),
+              ],
+              onChanged: (String? value) {
+                setState(() {
+                  dropdownval = value;
+                });
+                print("The dropdown value is $dropdownval");
+              },
+            ),
             TextField(
               controller: controller,
               decoration: InputDecoration(border: OutlineInputBorder()),
@@ -141,10 +156,46 @@ class _ProfilePageState extends State<ProfilePage> {
                 });
               },
             ),
-            Image.asset('assets/images/img01.jpg'),
-            Image.asset('assets/images/img01.jpg'),
-            Image.asset('assets/images/img01.jpg'),
-            Image.asset('assets/images/img01.jpg'),
+            GestureDetector(
+              onTap: () {
+                print("This image taped");
+              },
+              child: Image.asset('assets/images/img01.jpg'),
+            ),
+            SizedBox(height: 15.0),
+            InkWell(
+              splashColor: Colors.teal,
+              onTap: () {
+                print("This is new one !");
+              },
+              child: Container(
+                height: 200,
+                width: double.infinity,
+                color: Colors.white12,
+              ),
+            ),
+            // buttons
+            ElevatedButton(
+              onPressed: () {
+                print("this button (styled elevate)");
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amber,
+                foregroundColor: Colors.white,
+              ),
+              child: Text("Click me !"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print("this button (unstyled elevate)");
+              },
+              child: Text("Click me !"),
+            ),
+            FilledButton(onPressed: () {}, child: Text("Filled Button")),
+            TextButton(onPressed: () {}, child: Text("Text Button")),
+            OutlinedButton(onPressed: () {}, child: Text("Outlined Button")),
+            CloseButton(),
+            BackButton(),
           ],
         ),
       ),
