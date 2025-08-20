@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/views/widget_tree.dart';
-import 'package:learn_flutter/views/widgets/hero_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -13,7 +13,19 @@ class WelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            HeroWidget(),
+            Lottie.asset('assets/lotties/analytics_character_animation.json'),
+            FittedBox(
+              child: Text(
+                "Flutter Map",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal,
+                  letterSpacing: 15,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
             FilledButton(
               onPressed: () {
                 Navigator.pushReplacement(
@@ -25,6 +37,17 @@ class WelcomePage extends StatelessWidget {
                   ),
                 );
               },
+              style: FilledButton.styleFrom(
+                minimumSize: Size(double.infinity, 40),
+              ),
+              child: Text("Get Started"),
+            ),
+            OutlinedButton(
+              onPressed: () {},
+              style: FilledButton.styleFrom(
+                minimumSize: Size(double.infinity, 40),
+                foregroundColor: Colors.teal,
+              ),
               child: Text("Log In"),
             ),
           ],
