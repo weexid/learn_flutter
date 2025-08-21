@@ -22,9 +22,6 @@ class ProfilePage extends StatelessWidget {
                     },
                   ),
                 );
-                Future.microtask(() {
-                  selectedPageNotifier.value = 0;
-                });
               },
               child: Text("Logout"),
             ),

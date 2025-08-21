@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/data/notifier.dart';
 import 'package:learn_flutter/views/widget_tree.dart';
 import 'package:lottie/lottie.dart';
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
+
+  @override
+  State<WelcomePage> createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage> {
+  @override
+  void initState() {
+    super.initState();
+    selectedPageNotifier.value = 0;
+  }
 
   @override
   Widget build(BuildContext context) {
