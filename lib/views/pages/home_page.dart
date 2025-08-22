@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
-          HeroWidget(),
+          HeroWidget(title: "Fluuter-Map"),
           Container(
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,

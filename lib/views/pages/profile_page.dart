@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/data/notifier.dart';
 import 'package:learn_flutter/views/pages/welcome_page.dart';
 
 class ProfilePage extends StatelessWidget {

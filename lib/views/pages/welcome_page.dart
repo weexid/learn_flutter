@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/data/notifier.dart';
-import 'package:learn_flutter/views/widget_tree.dart';
+import 'package:learn_flutter/views/pages/login_page.dart';
 import 'package:lottie/lottie.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -44,7 +44,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WidgetTree();
+                      return LoginPage();
                     },
                   ),
                 );
@@ -55,7 +55,16 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Text("Get Started"),
             ),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginPage();
+                    },
+                  ),
+                );
+              },
               style: FilledButton.styleFrom(
                 minimumSize: Size(double.infinity, 40),
                 foregroundColor: Colors.teal,
