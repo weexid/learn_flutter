@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+class KConstant {
+  static const String themeModeKey = "isDakMode";
+}
+
 class KTextStyle {
   static const TextStyle titleStyle = TextStyle(
     fontSize: 18.0,

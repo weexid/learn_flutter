@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/data/constant.dart';
 import 'package:learn_flutter/data/notifier.dart';
 import 'package:learn_flutter/views/pages/welcome_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final isDark = prefs.getBool(KConstant.themeModeKey) ?? false;
+
+  selectedPageNotifier = ValueNotifier<int>(0);
+  isDarkModeNotifier = ValueNotifier<bool>(isDark);
+
   runApp(const MyApp());
 }
 
@@ -19,6 +28,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    // _loadTheme();
+    super.initState();
+  }
+
+  Future<void> _loadTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    final isDarkMode = prefs.getBool(KConstant.themeModeKey) ?? false;
+    isDarkModeNotifier.value = isDarkMode;
+  }
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
